@@ -2,12 +2,16 @@ import React from "react";
 import { Card, UserImage } from "./user-card.styled";
 import { UserContext } from "../../data/users/context";
 
-export const UserCard: React.FC = () => {
+interface IUserCardProps {
+  user: any;
+}
+
+export const UserCard: React.FC<IUserCardProps> = (props) => {
   return (
     <Card>
       <UserImage />
       <div className="">
-        <h3>User name</h3>
+        <h4 className="text-sm">{props.user.name}</h4>
       </div>
     </Card>
   );

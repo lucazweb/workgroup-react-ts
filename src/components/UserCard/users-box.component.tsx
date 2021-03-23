@@ -1,22 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UsersBox, UsersGridWrapper } from "./user-card.styled";
 import { UserCard } from "./user-card.component";
 import { UserContext } from "../../data/users/context";
+import { getUsers } from "../../data/users/actions";
 
 export const UserCardBox: React.FC = () => {
-  const { state } = useContext(UserContext);
-  console.log(state);
+  const {
+    state: { users },
+    dispatch,
+  } = useContext(UserContext);
+
+  useEffect(() => {
+    getUsers(function (data) {
+      dispatch({
+        type: "GET_USERS",
+        payload: data,
+      });
+    });
+  }, []);
+
   return (
     <UsersBox>
       <UsersGridWrapper>
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
+        {users ? (
+          <>
+            {users.map((user) => (
+              <UserCard user={user} />
+            ))}
+          </>
+        ) : (
+          <pre>Sem usuários a exibir</pre>
+        )}
       </UsersGridWrapper>
     </UsersBox>
   );

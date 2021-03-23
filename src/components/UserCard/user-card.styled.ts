@@ -10,9 +10,13 @@ export const UsersGridWrapper = styled.div.attrs({
 
 export const Card = styled.div.attrs({
   className:
-    "flex flex-col justify-center items-center border border-gray-700 rounded-sm m-2 p-1",
+    "shadow shadow-md flex flex-col justify-center items-center border border-gray-700 rounded-sm m-2 p-6",
 })``;
 
 export const UserImage = styled.div.attrs({
-  className: "w-16 h-16 border border-gray-200 bg-gray-200 rounded-full",
-})``;
+  className:
+    "ring-1 ring-gray-600 shadow shadow-md w-16 h-16 border border-gray-200 bg-gray-200 rounded-full",
+})`
+  background-image: url("http://searadedeus.org.br/wp-content/uploads/2018/04/user-unknown-icon.jpg");
+  background-size: cover;
+`;
