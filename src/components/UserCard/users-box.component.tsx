@@ -17,7 +17,7 @@ export const UserCardBox: React.FC = () => {
         payload: data,
       });
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <UsersBox>

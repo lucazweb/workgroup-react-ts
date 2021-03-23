@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, UserImage } from "./user-card.styled";
-import { UserContext } from "../../data/users/context";
+import { User } from "../../data/users/types";
 
 interface IUserCardProps {
-  user: any;
+  user: User;
 }
 
 export const UserCard: React.FC<IUserCardProps> = (props) => {
